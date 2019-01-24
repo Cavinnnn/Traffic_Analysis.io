@@ -1,0 +1,125 @@
+$size: 35em;
+$size2: 40em;
+$size3: 45em;
+
+.heading1{
+  margin-top: 30%;
+  margin-left: 25%;
+}
+
+.heading2{
+  margin-top: 20%;
+  margin-left: 12%;
+}
+
+.sign-in{
+  background:white;
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+}
+
+.bottom {
+    position: absolute;
+    z-index: 2;
+    background: #ff9933;
+    height: $size;
+    width: $size * 2;
+    border-bottom-left-radius: $size * 2;
+    border-bottom-right-radius: $size * 2;
+    margin-top: -2%;
+    margin-left: -15%;
+  }
+
+
+.bottom1 {
+    position: absolute;
+    z-index: 1;
+    background: #f09942;
+    height: $size2;
+    width: $size2 * 2;
+    border-bottom-left-radius: $size2 * 2;
+    border-bottom-right-radius: $size2 * 2; 
+    margin-top: -2%;
+    margin-left: -15%;
+  }
+
+.bottom2 {
+    z-index: -1;
+    background: #ffbf80;
+    height: $size3;
+    width: $size3 * 2;
+    border-bottom-left-radius: $size3 * 2;
+    border-bottom-right-radius: $size3 * 2; 
+    margin-top: -2%;
+    margin-left: -15%;
+  }
+  .form-label {
+    margin-top: 15%;
+    font-size: 20px;
+    color: #ffbf80;
+    margin: 0;
+    display: block;
+    opacity: 1;
+    -webkit-transition: .333s ease top, .333s ease opacity;
+    transition: .333s ease top, .333s ease opacity;
+  }
+  .form-label2 {
+    margin-top: 15%;
+    font-size: 20px;
+    color: #ffbf80;
+    margin: 0;
+    display: block;
+    opacity: 1;
+    -webkit-transition: .333s ease top, .333s ease opacity;
+    transition: .333s ease top, .333s ease opacity;
+  }
+
+  .form-control {
+    font-size: 15px;
+    width:100%;
+    border-radius: 0;
+    border-color: #ccc;
+       border-width: 0 0 2px 0;
+       border-style: none none solid none;
+       box-shadow: none;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ffbf80;
+  }
+
+  .form-control2 {
+    font-size: 15px;
+    width:100%;
+    border-radius: 0;
+    border-color: #ccc;
+       border-width: 0 0 2px 0;
+       border-style: none none solid none;
+       box-shadow: none;
+  }
+  .form-control2:focus {
+    box-shadow: none;
+    border-color: #ffbf80;
+  }
+
+  .btn-start-order {
+    background: 0 0 #ffffff;
+      border: 1px solid #2f323a;
+      border-radius: 3px;
+      color: #2f323a;
+      font-family: "Raleway", sans-serif;
+      font-size: 16px;
+      line-height: inherit;
+      margin: 30px 0;
+      padding: 10px 50px;
+      text-transform: uppercase;
+      transition: all 0.25s ease 0s;
+      margin-left: 25%;
+  }
+  .btn-start-order:hover,.btn-start-order:active, .btn-start-order:focus {
+    border-color: #ffbf80;
+    color: #ffbf80;
+  }

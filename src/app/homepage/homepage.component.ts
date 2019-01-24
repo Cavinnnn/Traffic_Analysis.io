@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomepageService } from './homepage.service';
 import * as mapboxgl from 'mapbox-gl';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,12 +18,15 @@ export class HomepageComponent implements OnInit {
   lng = -6.281422 ;
 
 
-  constructor(private _map: HomepageService) { }
+  constructor(private _map: HomepageService, private router: Router) 
+  {}
 
   ngOnInit() {
-
     this.initializeMap();
+  }
 
+  sign(){
+    this.router.navigate(['./sign']);
   }
 
   private initializeMap() {
@@ -49,7 +53,44 @@ export class HomepageComponent implements OnInit {
       style: this.style,
       zoom: 10,
       center: [this.lng, this.lat]
+      
     });
+    
+    this.map.addLayer({
+      "id": "route",
+        "type": "line",
+        "source": {
+            "type": "geojson",
+            "data": {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -6.24122142791748,
+                      53.347643698735
+                    ],
+                    [
+                      -6.251220703125,
+                      53.348284160625184
+                    ]
+                  ]
+                }
+            }
+        },
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#888",
+            "line-width": 12
+        }
+    });
+    
   }
+
+
   
 }
