@@ -1,0 +1,13 @@
+$size: 100%;
+
+.bottom {
+    position: absolute;
+    z-index: 2;
+    background-image: linear-gradient(to bottom right, #ff9933, #ffcc99);
+    height: $size;
+    width: $size * 1.145;
+    border-bottom-left-radius: $size * 2;
+    border-bottom-right-radius: $size * 2;
+    margin-top: -2%;
+    margin-left: -15%;
+  }

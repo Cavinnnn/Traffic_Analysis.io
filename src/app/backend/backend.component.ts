@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { Router } from '@angular/router';
 import { HomepageService } from '../homepage/homepage.service';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-backend',
@@ -10,21 +11,27 @@ import { HomepageService } from '../homepage/homepage.service';
 })
 export class BackendComponent implements OnInit {
 
+  showFiller = false;
   map: mapboxgl.Map;
 
   style = 'mapbox://styles/cavinn/cjpie0lw3002m2spk0x8dfw0f';
   lat = 53.340602;
   lng = -6.281422 ;
 
-  constructor(private _map: HomepageService, private router: Router) { }
+  constructor(private _map: HomepageService,
+              private router: Router,
+              public authService: AuthService) { }
 
   ngOnInit() {
     
     this.initializeMap();
 
   }
-
   
+  logout() {
+    this.authService.logout();
+  }
+
   private initializeMap() {
     /// locate the user
     if (navigator.geolocation) {

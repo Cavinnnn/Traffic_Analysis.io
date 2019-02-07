@@ -1,17 +1,24 @@
-<div class="sign-in">
-    <h4 class="heading1">Traffic Analysis.io</h4>
-    <h4 class="heading2">SIGN INTO YOUR ACCOUNT NOW</h4>
+<app-background></app-background>
 
-    <label class="form-label" >Your Email</label><br>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
+<div class="login-page">
+    
+    <div class="form">
+        
+        <h4>Sign in!</h4>
+        
+        <form class="login-form">
 
-    <label class="form-label2" >Your password</label><br>
-    <input type="email" class="form-control2" id="email" name="email" placeholder="password" tabindex="2" required>
+        <input type="text" placeholder="username" [(ngModel)]="email" name="email" required autofocus/>
+        <input type="password" placeholder="password" [(ngModel)]="password" name="password" required/>
 
-    <button type="submit" class="btn btn-start-order" routerLink="/back-end">Sign in</button>
+        <button (click)="login()" class="login" [disabled]="!email || !password">Login</button>
 
-</div>
+        <span class="or"> OR </span>
 
-<div class="bottom"></div>
-<div class="bottom1"></div>
-<div class="bottom2"></div>
+        <button (click)="authService.googleLogin()" >Google login</button>
+
+        <p class="message">Not registered? <a routerLink="/register">Create an account</a></p>
+      </form>
+
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<app-background></app-background>
+
+<div class="login-page">
+    
+    <div class="form">
+        
+        <h4>Register!</h4>
+        
+        <form class="login-form">
+
+        <input type="text" placeholder="email" [(ngModel)]="email" name="email"/>
+        <input type="text" placeholder="confirm email"/>
+
+        <input type="text" placeholder="username"/>
+
+        <input type="password" placeholder="password" [(ngModel)]="password" name="password"/>
+
+        <button (click)="signup()" [disabled]="!email || !password">SIGN UP</button>
+
+        <p class="message">One step closer!</p>
+      </form>
+
+    </div>
+  </div>

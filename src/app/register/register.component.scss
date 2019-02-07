@@ -4,10 +4,6 @@ h4{
   padding: 5%;
   margin:0;
 }
-.logged-in{
-  position: relative;
-  z-index: 3;
-}
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -74,10 +70,4 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
-}
-.login{
-  margin-bottom: 5%;
-}
-.or{
-  padding: 5%;
 }

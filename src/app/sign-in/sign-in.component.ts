@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthService } from '../shared/services/auth.service';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,14 +9,17 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  email: string;
+  password: string;
+
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }
 
-
-  sign(){
-    this.router.navigate(['./sign']);
+  login() {
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';    
   }
 
 }
