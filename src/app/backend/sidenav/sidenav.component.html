@@ -1,13 +1,37 @@
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened class="mat-elevation-z20">
-      <h1>Welcome!</h1> 
-      
-      <p>High</p>
-      <p>Medium</p>
-      <p>Low</p>
+<mat-drawer-container class="container">
+    <mat-drawer mode="side" opened  >
+        <mat-card class="mat-elevation-z4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Search">
+          </mat-form-field>
+        </mat-card>
+
+        <mat-card class="mat-elevation-z4">
+            
+              <p class="p1">High</p>
+            
+            <hr class="red">
+          <mat-divider></mat-divider>
+          
+              <p>Medium</p>
+
+            <hr class="orange">
+          <mat-divider></mat-divider>
+          
+            <p>Low</p>
+
+          <hr class="green">
+        </mat-card>
+
+      <mat-card id="chart" class="mat-elevation-z4">
+        Map Reduce
+          <canvas baseChart
+          [data]="lineChartData"
+          [labels]="lineChartLabels"
+          [chartType]="lineChartType"></canvas>
+      </mat-card>
 
       <button mat-button class="logout" (click)="logout()">Log out</button>
-
 
     </mat-drawer>
 </mat-drawer-container>

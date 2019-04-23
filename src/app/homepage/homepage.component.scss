@@ -40,3 +40,41 @@
   width: 40%;
   height: 60%;
 }
+@media screen and (max-width : 500px) {
+  .textarea {
+    position:absolute;
+    z-index: 4;
+    top: 20%;
+    left: 10%;
+    width: 40%;
+    height: 60%;
+    color: white;
+  }
+  
+  .textarea-heading1{
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  
+  .textarea-heading3{
+    letter-spacing: 1px;
+  }
+  .get-started-button{
+    margin-top: 5%;
+    background: white;
+    height: 55px;
+    text-align: center;
+    border: white;
+    width: 70%;
+    border-radius:40px;
+    color: #f09942;
+    letter-spacing:1px;
+    text-shadow:0;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  #map { 
+    
+  }
+  
+}

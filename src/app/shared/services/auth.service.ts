@@ -19,6 +19,7 @@ export class AuthService {
   signup(email: string, password: string) {
     this.firebaseAuth.auth.createUserWithEmailAndPassword(email, password).then(value => {
         console.log('Success!', value);
+        this.router.navigate(['/sign']);
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
@@ -27,6 +28,7 @@ export class AuthService {
 
   async googleLogin(){
     await this.firebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.router.navigate(['/back-end']);
   }
 
   login(email: string, password: string) {

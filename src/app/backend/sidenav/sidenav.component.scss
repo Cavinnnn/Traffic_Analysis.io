@@ -1,14 +1,68 @@
-.example-container {
+.container {
     width: 100%;
-    height: 100%;
+    height: 90%;
     position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 mat-drawer{
     height: 100%;
     width: 25%;
 }
+.example-full-width {
+    width: 100%;
+  }
 .logout{
+    background-color: #f09942;
+    color: white;
     position: absolute;
     bottom: 5%;
     right: 5%;
+}
+mat-card{
+    margin-bottom: 10%;
+}
+p{
+    padding: 2%;
+}
+
+.red{
+    height: 3px;
+    color: red; 
+    background-color: red;
+    border: none;
+    margin-top: -5%;
+    padding-bottom: 2%;
+}
+.orange{
+    height: 3px;
+    color: orange; 
+    background-color: orange;
+    border: none;
+    margin-top: -5%;
+    padding-bottom: 2%;
+}
+.green{
+    height: 3px;
+    color: green; 
+    background-color: green;
+    border: none;
+    margin-top: -5%;
+    padding-bottom: 2%;
+}
+@media screen and (max-width : 500px) {
+    mat-drawer{
+        height: 100%;
+        width: 50%;
+    }
+    mat-card{
+        margin-bottom: 2%;
+    }
+    .logout{
+        background-color: #f09942;
+        color: white;
+    
+    }
+    #chart{
+        height: 30%;
+    }
 }

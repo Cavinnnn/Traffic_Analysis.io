@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -20,14 +23,14 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/material.module';
 import { SidenavComponent } from './backend/sidenav/sidenav.component';
+import { ToolbarComponent } from './backend/toolbar/toolbar.component';
 
 const appRoutes:
   Routes = [
     { path: '', component: HomepageComponent, },
     { path: 'sign', component: SignInComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'back-end', component: BackendComponent },
-    { path: 'side', component: SidenavComponent },
+    { path: 'back-end', component: BackendComponent }, 
     { path: '**', redirectTo: '', pathMatch: 'full'}
   ];
 
@@ -41,17 +44,21 @@ const appRoutes:
     BackgroundComponent,
     RegisterComponent,
     SidenavComponent,
+    ToolbarComponent,
     
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     FormsModule,
     SharedModule,
     BrowserAnimationsModule,
+    HttpModule,
+    ChartsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
