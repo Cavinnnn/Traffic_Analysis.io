@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { BackendComponent } from '../backend.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -20,11 +21,16 @@ export class SidenavComponent implements OnInit {
   public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May'];
   public lineChartType:string = 'line';
 
-  constructor(public _back: BackendComponent) { }
+  constructor(public _back: BackendComponent,
+              public authService: AuthService) { }
 
   ngOnInit() {
   }
 
+
+  logout() {
+    this.authService.logout();
+  }
 
   search() {
     this._back.search(this.location);

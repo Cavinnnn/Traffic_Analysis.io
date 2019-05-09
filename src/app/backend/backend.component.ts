@@ -65,12 +65,6 @@ export class BackendComponent implements OnInit {
     }
   }
 
-  
-  
-  logout() {
-    this.authService.logout();
-  }
-
   private initializeMap() {
     /// locate the user
     if (navigator.geolocation) {
