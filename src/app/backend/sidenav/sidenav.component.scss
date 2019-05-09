@@ -1,15 +1,12 @@
-.container {
-    width: 100%;
-    height: 90%;
-    position: relative;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-mat-drawer{
-    height: 100%;
-    width: 25%;
-}
-.example-full-width {
-    width: 100%;
+.example-container {
+    position: static;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .example-full-width{
+      width: 70%;
   }
 .logout{
     background-color: #f09942;
@@ -24,7 +21,6 @@ mat-card{
 p{
     padding: 2%;
 }
-
 .red{
     height: 3px;
     color: red; 
@@ -49,20 +45,9 @@ p{
     margin-top: -5%;
     padding-bottom: 2%;
 }
-@media screen and (max-width : 500px) {
-    mat-drawer{
-        height: 100%;
-        width: 50%;
-    }
-    mat-card{
-        margin-bottom: 2%;
-    }
-    .logout{
-        background-color: #f09942;
-        color: white;
-    
-    }
-    #chart{
-        height: 30%;
-    }
+.menu{
+  float: right;
+  margin-right: 20px;
+  margin-top: 10%;
+  background-color: white;
 }

@@ -1,148 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import { AuthService } from '../shared/services/auth.service';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-import { PlottingService } from '../shared/services/plotting.service';
 
-@Component({
-  selector: 'app-backend',
-  templateUrl: './backend.component.html',
-  styleUrls: ['./backend.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class BackendComponent implements OnInit {
-  
-
+export class PlottingService {
 
   map: mapboxgl.Map;
-  style;
-  lat = 53.340602;
-  lng = -6.281422;
-  start = [];
-  end = [];
-  dir;
-  plot_direction;
-  locate;
 
-
-
-  constructor(public _plot: PlottingService,
-              public authService: AuthService,
-              public _http: HttpClient,
-              ) {
-              }
-
-  ngOnInit() {
-    
-    this.initializeMap();
-    this.search(this.locate);
-
-  }
-
-  search(location){
-    if(location){
-
-      this.locate = location;
-
-      let api =`https://api.mapbox.com/geocoding/v5/mapbox.places/${location}%20dublin.json?access_token=pk.eyJ1IjoiY2F2aW5uIiwiYSI6ImNqZW9nNjduejVrcTIyd21xMGhsYnB0bGwifQ.d1szzRngrK0u-qP_aiD64A`;
-
-      
-      console.log(location)
-
-      return this._http.get(api)
-        .pipe(
-          tap((res: any) => res)
-        ).subscribe(locations => {
-          
-          let loc_lat = locations.features[0].bbox[1]
-          let loc_lng = locations.features[0].bbox[0]
-
-          this.map.flyTo({
-            center: [loc_lng, loc_lat],
-            zoom: 14,
-          });
-        });
-    }
-  }
-
+  constructor() { }
   
-  
-  logout() {
-    this.authService.logout();
-  }
-
-  private initializeMap() {
-    /// locate the user
-    if (navigator.geolocation) {
-       navigator.geolocation.getCurrentPosition(position => {
-        let lat = position.coords.latitude;
-        let lng = position.coords.longitude;
-        this.map.flyTo({
-          center: [lng, lat],
-          zoom: 14,
-        })
-      });
-    }
-
-    this.buildMap()
-
-  }
-
-  buildMap() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F2aW5uIiwiYSI6ImNqZW9nNjduejVrcTIyd21xMGhsYnB0bGwifQ.d1szzRngrK0u-qP_aiD64A';
-
-      this.map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        zoom: 10,
-        center: [this.lng, this.lat]
-      });
-
-      this.directions();
-      this.m50();
-  }
-  
-
-  directions(){
-    let palmerstown = [-6.375164, 53.353620]
-    let lights = [-6.373624, 53.355309]
-    // look at api
-    const directions_api = `https://api.mapbox.com/directions/v5/mapbox/driving/${lights};${palmerstown}?geometries=geojson&access_token=pk.eyJ1IjoiY2F2aW5uIiwiYSI6ImNqZW9nNjduejVrcTIyd21xMGhsYnB0bGwifQ.d1szzRngrK0u-qP_aiD64A`;
-
-
-    this.map.on('load', (event) => {
-      return this._http.get(directions_api)
-        .pipe(
-          tap((res: any) => res)
-        ).subscribe(directions => {
-            
-            this.dir = directions
-
-                  this.map.addLayer({
-                    "id": "1",
-                      "type": "line",
-                      "source": {
-                          "type": "geojson",
-                          "data": {
-                            "type": 'Feature',
-                            "properties": {},
-                            "geometry": directions.routes[0].geometry
-                          }
-                      },
-                      "layout": {
-                          "line-join": "round",
-                          "line-cap": "round"
-                      },
-                      "paint": {
-                          "line-color": "blue",
-                          "line-width": 3
-                      }
-          });
-        });
-    });
-
-  }
-
   m50(){
 
     this.map.on('load', (event) => {
@@ -1121,6 +988,4 @@ export class BackendComponent implements OnInit {
             });
         });
   }
-
 }
-

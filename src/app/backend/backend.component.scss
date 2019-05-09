@@ -1,8 +1,22 @@
   #map { 
     position: absolute;
-    z-index: 3;
-    width: 75%;
-    height: 90%;
-    right:0;
+    width: 100%;
+    height: 93%;    
   }
-  
+@media screen and (max-width : 500px) {
+    mat-drawer{
+        height: 100%;
+        width: 50%;
+    }
+    mat-card{
+        margin-bottom: 2%;
+    }
+    .logout{
+        background-color: #f09942;
+        color: white;
+    
+    }
+    #chart{
+        height: 30%;
+    }
+}

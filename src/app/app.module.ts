@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -22,8 +22,8 @@ import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/material.module';
-import { SidenavComponent } from './backend/sidenav/sidenav.component';
 import { ToolbarComponent } from './backend/toolbar/toolbar.component';
+import { SidenavComponent } from './backend/sidenav/sidenav.component';
 
 const appRoutes:
   Routes = [
@@ -43,9 +43,8 @@ const appRoutes:
     NavComponent,
     BackgroundComponent,
     RegisterComponent,
-    SidenavComponent,
     ToolbarComponent,
-    
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -54,12 +53,16 @@ const appRoutes:
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     BrowserAnimationsModule,
     HttpModule,
     ChartsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes)
+  ],
+  exports: [
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
