@@ -81,3 +81,12 @@ body {
 .or{
   padding: 5%;
 }
+@media screen and (max-width : 500px) {
+  .login-page {
+    width: 85%;
+    padding: 8% 0 0;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+  }
+}

@@ -15,7 +15,7 @@
 
         <span class="or"> OR </span>
 
-        <button (click)="authService.googleLogin()" >Google login</button>
+        <a routerLink="/back-end"> <button (click)="authService.googleLogin()" >Google login</button></a>
 
         <p class="message">Not registered? <a routerLink="/register">Create an account</a></p>
       </form>

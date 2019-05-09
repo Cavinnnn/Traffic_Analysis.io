@@ -42,16 +42,20 @@
 }
 @media screen and (max-width : 500px) {
   .textarea {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position:absolute;
     z-index: 4;
     top: 20%;
-    left: 10%;
-    width: 40%;
+    width: 60%;
     height: 60%;
     color: white;
   }
   
   .textarea-heading1{
+    
     font-size: 20px;
     letter-spacing: 3px;
   }
@@ -74,7 +78,9 @@
     cursor: pointer;
   }
   #map { 
-    
+    position: absolute;
+    width: 0%;
+    height: 0%;
   }
   
 }
