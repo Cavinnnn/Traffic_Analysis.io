@@ -27,8 +27,10 @@ export class AuthService {
   }
 
   async googleLogin(){
-    await this.firebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    this.router.navigate(['/back-end']);
+    await this.firebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(value => {
+      console.log('Success!', value);
+      this.router.navigate(['/back-end']);
+    });
   }
 
   login(email: string, password: string) {
