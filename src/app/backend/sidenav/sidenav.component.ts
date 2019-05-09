@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class SidenavComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: MatSidenav;
-
+  escape;
   location: string;
 
   public lineChartData:Array<any> = [
@@ -27,6 +27,9 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {
   }
 
+  close(escape) {
+
+  }
 
   logout() {
     this.authService.logout();
