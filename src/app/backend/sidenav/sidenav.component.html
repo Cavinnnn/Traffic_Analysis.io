@@ -2,18 +2,32 @@
     <mat-sidenav #sidenav (keydown.escape)="close('escape')" opened>
       
         <mat-card class="mat-elevation-z4">
-            <mat-form-field class="example-full-width" >
-                <input matInput placeholder="Search"  name="location" [(ngModel)]="location" required />
+          <div class="flex">
+            <mat-form-field appearance="outline" class="example-full-width">
+                <input matInput placeholder="Search"  name="location" [(ngModel)]="location" (input)="search()" required />
 
+                <mat-icon matSuffix>
+                    <i class="material-icons">
+                        search
+                    </i>
+                  </mat-icon>
             </mat-form-field>
-            
-            <button mat-button (click)="search()">
-                <i class="material-icons">
-                    search
-                </i>
-            </button>
-        </mat-card>
+          </div>
 
+
+            <div class="flex">
+              <mat-form-field appearance="outline" class="example-full-width">
+                  <input matInput placeholder="Current Location" style="font-weight: bold;" readonly/>
+                  <mat-icon matSuffix>
+                      <i class="material-icons">
+                          location_on
+                      </i>
+                  </mat-icon>
+              </mat-form-field>
+                  
+            </div>
+        </mat-card>
+        
         <mat-card class="mat-elevation-z4">
             
               <p class="p1">High</p>

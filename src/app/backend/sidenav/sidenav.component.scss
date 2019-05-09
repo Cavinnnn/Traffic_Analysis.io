@@ -6,17 +6,25 @@
     right: 0;
   }
   .example-full-width{
-      width: 70%;
+      width: 98%;
+      margin-bottom:-5%;
   }
 .logout{
     background-color: #f09942;
     color: white;
-    position: absolute;
-    bottom: 5%;
+    position: relative;
     right: 5%;
+    float:right;
 }
 mat-card{
-    margin-bottom: 10%;
+    margin-bottom: 8%;
+}
+.flex{
+    display:flex;
+    flex-direction: column;
+}
+.wrap{
+    margin-top:-100%;
 }
 p{
     padding: 2%;
@@ -47,7 +55,22 @@ p{
 }
 .menu{
   float: right;
-  margin-right: 20px;
-  margin-top: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
   background-color: white;
+}
+@media screen and (max-width : 500px) {
+    .menu{
+        float: right;
+        margin-right: 20px;
+        margin-top: 10%;
+        background-color: white;
+      }
+      .example-container {
+        position: static;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
 }
