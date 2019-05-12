@@ -51,8 +51,8 @@ p{
 }
 .orange{
     height: 3px;
-    color: orange; 
-    background-color: orange;
+    color: yellow; 
+    background-color: yellow;
     border: none;
     margin-top: -5%;
     padding-bottom: 2%;
@@ -88,5 +88,10 @@ p{
 
       mat-card{
         margin-bottom: 3%;
+    }
+    .flex{
+        display:flex;
+        flex-direction: column;
+        margin-top:2%;
     }
 }

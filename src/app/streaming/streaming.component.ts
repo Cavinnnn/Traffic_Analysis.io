@@ -42,13 +42,13 @@ export class StreamingComponent implements OnInit {
 
   
   plotSentiment() {
-    this.db.list(`sentiment/all`).valueChanges().subscribe((colours: any) => {
+    this.db.list(`streaming`).valueChanges().subscribe((colours: any) => {
       let m50: [0, 1];
 
-      m50 = colours[2];
+      m50 = colours;
 
       this.m50_colour = m50[Object.keys(m50)[0]]
-
+      console.log(colours)
       this.initializeLocation();
     })
   }
