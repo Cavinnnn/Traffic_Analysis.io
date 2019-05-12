@@ -13,6 +13,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { NavComponent } from './nav/nav.component';
 import { BackgroundComponent } from './background/background.component';
 import { RegisterComponent } from './register/register.component';
+import { ToolbarComponent } from './backend/toolbar/toolbar.component';
+import { SidenavComponent } from './backend/sidenav/sidenav.component';
 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -22,15 +24,17 @@ import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/material.module';
-import { ToolbarComponent } from './backend/toolbar/toolbar.component';
-import { SidenavComponent } from './backend/sidenav/sidenav.component';
+import { StreamingComponent } from './streaming/streaming.component';
+import { SideComponent } from './streaming/side/side.component';
+import { ToolComponent } from './streaming/tool/tool.component';
 
 const appRoutes:
   Routes = [
     { path: '', component: HomepageComponent, },
     { path: 'sign', component: SignInComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'back-end', component: BackendComponent }, 
+    { path: 'back-end', component: BackendComponent},
+    { path: 'streaming', component: StreamingComponent},
     { path: '**', redirectTo: '', pathMatch: 'full'}
   ];
 
@@ -44,7 +48,10 @@ const appRoutes:
     BackgroundComponent,
     RegisterComponent,
     ToolbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    StreamingComponent,
+    SideComponent,
+    ToolComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
-import { BackendComponent } from '../backend.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { PlottingService } from 'src/app/shared/services/plotting.service';
-
+import { StreamingComponent } from '../streaming.component';
 
 @Component({
-  selector: 'app-sidenav',
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+  selector: 'app-side',
+  templateUrl: './side.component.html',
+  styleUrls: ['./side.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SideComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: MatSidenav;
   escape;
@@ -25,7 +24,7 @@ export class SidenavComponent implements OnInit {
   public lineChartLabels:Array<any> = ['December', 'January', 'February', 'March', 'April', 'May'];
   public lineChartType:string = 'line';
 
-  constructor(public _back: BackendComponent,
+  constructor(public _stream: StreamingComponent,
               public _plot: PlottingService,
               public authService: AuthService,
               public _http: HttpClient,
@@ -50,7 +49,8 @@ export class SidenavComponent implements OnInit {
   }
 
   search() {
-    this._back.search(this.location);
+    this._stream.search(this.location);
     this.location = '';
   }
+
 }

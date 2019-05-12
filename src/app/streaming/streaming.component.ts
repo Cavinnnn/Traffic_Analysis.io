@@ -8,12 +8,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-backend',
-  templateUrl: './backend.component.html',
-  styleUrls: ['./backend.component.scss']
+  selector: 'app-streaming',
+  templateUrl: './streaming.component.html',
+  styleUrls: ['./streaming.component.scss']
 })
+export class StreamingComponent implements OnInit {
 
-export class BackendComponent implements OnInit {
   map: mapboxgl.Map;
   lat = 53.340602;
   lng = -6.281422;
@@ -40,27 +40,14 @@ export class BackendComponent implements OnInit {
     this.search(this.locate);
   }
 
-
+  
   plotSentiment() {
     this.db.list(`sentiment/all`).valueChanges().subscribe((colours: any) => {
-      let chapelizod: [0, 1];
-      let m1: [0, 1];
       let m50: [0, 1];
-      let naas: [0, 1];
-      let navan: [0, 1];
 
-      chapelizod = colours[0];
-      m1 = colours[1];
       m50 = colours[2];
-      naas = colours[3];
-      navan = colours[4]
 
-
-      this.chapel_colour = chapelizod[Object.keys(chapelizod)[0]]
-      this.m1_colour = m1[Object.keys(m1)[0]]
       this.m50_colour = m50[Object.keys(m50)[0]]
-      this.naas_colour = naas[Object.keys(naas)[0]]
-      this.navan_colour = navan[Object.keys(navan)[0]]
 
       this.initializeLocation();
     })
@@ -123,10 +110,6 @@ export class BackendComponent implements OnInit {
     });
 
     this.m50();
-    this.m1();
-    this.chapel();
-    this.naas();
-    this.navan();
   }
 
   directions(location) {
@@ -198,121 +181,4 @@ export class BackendComponent implements OnInit {
     });
   }
 
-  chapel() {
-    this.map.on('load', (event) => {
-      this.map.addLayer({
-        "id": "chapel",
-        "type": "line",
-        "source": {
-          "type": "geojson",
-          "data": {
-            "type": 'Feature',
-            "properties": {},
-            "geometry": {
-              "type": "LineString",
-              "coordinates": this._plot.plot_chapelizod,
-            }
-          }
-        },
-        "layout": {
-          "line-join": "round",
-          "line-cap": "round"
-        },
-        "paint": {
-          "line-color": this.chapel_colour,
-          "line-width": 3
-        }
-      });
-    });
-  }
-
-    m1() {
-      this.map.on('load', (event) => {
-        this.map.addLayer({
-          "id": "m1",
-          "type": "line",
-          "source": {
-            "type": "geojson",
-            "data": {
-              "type": 'Feature',
-              "properties": {},
-              "geometry": {
-                "type": "LineString",
-                "coordinates": this._plot.plot_m1,
-              }
-            }
-          },
-          "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": this.m1_colour,
-            "line-width": 3
-          }
-        });
-      });
-
-
-  }
-
-  naas() {
-    this.map.on('load', (event) => {
-      this.map.addLayer({
-        "id": "naas",
-        "type": "line",
-        "source": {
-          "type": "geojson",
-          "data": {
-            "type": 'Feature',
-            "properties": {},
-            "geometry": {
-              "type": "LineString",
-              "coordinates": this._plot.plot_naas,
-            }
-          }
-        },
-        "layout": {
-          "line-join": "round",
-          "line-cap": "round"
-        },
-        "paint": {
-          "line-color": this.naas_colour,
-          "line-width": 3
-        }
-      });
-    });
-
-  }
-
-  navan() {
-    this.map.on('load', (event) => {
-      this.map.addLayer({
-        "id": "navan",
-        "type": "line",
-        "source": {
-          "type": "geojson",
-          "data": {
-            "type": 'Feature',
-            "properties": {},
-            "geometry": {
-              "type": "LineString",
-              "coordinates": this._plot.plot_navan,
-            }
-          }
-        },
-        "layout": {
-          "line-join": "round",
-          "line-cap": "round"
-        },
-        "paint": {
-          "line-color": this.navan_colour,
-          "line-width": 3
-        }
-      });
-    });
-
-  }
-
 }
-

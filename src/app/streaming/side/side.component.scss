@@ -71,11 +71,13 @@ p{
   right: 0;
 }
 .material-icons.color_white { color: #FFFFFF; }
+
 @media screen and (min-width : 1400px) {
     mat-card{
         margin-bottom: 33%;
     }
 }
+
 @media screen and (max-width : 500px) {
     
       .example-container {
