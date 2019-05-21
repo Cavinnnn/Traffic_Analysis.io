@@ -122,29 +122,28 @@ export class BackendComponent implements OnInit {
       center: [this.lng, this.lat]
     });
 
+    let val;
+
     this.m50();
     this.m1();
     this.chapel();
     this.naas();
     this.navan();
+    this.directions();
   }
 
-  directions(location) {
+  directions() {
 
-    this.map.on('load', () => {
+    let directions_api = `https://api.mapbox.com/directions/v5/mapbox/driving/-6.242863,53.349203;${location}?geometries=geojson&access_token=pk.eyJ1IjoiY2F2aW5uIiwiYSI6ImNqZW9nNjduejVrcTIyd21xMGhsYnB0bGwifQ.d1szzRngrK0u-qP_aiD64A`;
+    // let directions_api = `https://api.mapbox.com/directions/v5/mapbox/driving/-6.242863,53.349203;-6.293959,53.345932?geometries=geojson&access_token=pk.eyJ1IjoiY2F2aW5uIiwiYSI6ImNqZW9nNjduejVrcTIyd21xMGhsYnB0bGwifQ.d1szzRngrK0u-qP_aiD64A`;
 
-      let directions_api = `https://api.mapbox.com/directions/v5/mapbox/driving/-6.242863,53.349203;${location}?geometries=geojson&access_token=pk.eyJ1IjoiY2F2aW5uIiwiYSI6ImNqZW9nNjduejVrcTIyd21xMGhsYnB0bGwifQ.d1szzRngrK0u-qP_aiD64A`;
-      console.log(location)
-
-
+    this.map.on('load', (event) => {
       return this._http.get(directions_api)
         .pipe(
           tap((res: any) => res)
         ).subscribe(directions => {
 
           this.dir = directions
-
-          console.log("route: " + directions.routes[0].geometry)
 
           this.map.addLayer({
             "id": "1",
@@ -226,32 +225,32 @@ export class BackendComponent implements OnInit {
     });
   }
 
-    m1() {
-      this.map.on('load', (event) => {
-        this.map.addLayer({
-          "id": "m1",
-          "type": "line",
-          "source": {
-            "type": "geojson",
-            "data": {
-              "type": 'Feature',
-              "properties": {},
-              "geometry": {
-                "type": "LineString",
-                "coordinates": this._plot.plot_m1,
-              }
+  m1() {
+    this.map.on('load', (event) => {
+      this.map.addLayer({
+        "id": "m1",
+        "type": "line",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": 'Feature',
+            "properties": {},
+            "geometry": {
+              "type": "LineString",
+              "coordinates": this._plot.plot_m1,
             }
-          },
-          "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-          },
-          "paint": {
-            "line-color": this.m1_colour,
-            "line-width": 3
           }
-        });
+        },
+        "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        "paint": {
+          "line-color": this.m1_colour,
+          "line-width": 3
+        }
       });
+    });
 
 
   }

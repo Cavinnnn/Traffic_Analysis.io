@@ -51,6 +51,7 @@ export class SidenavComponent implements OnInit {
 
   search() {
     this._back.search(this.location);
+    // this._back.directions(this.location);
     this.location = '';
   }
 }

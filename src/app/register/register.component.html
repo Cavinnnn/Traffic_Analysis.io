@@ -11,8 +11,6 @@
         <input type="text" placeholder="email" [(ngModel)]="email" name="email"/>
         <input type="text" placeholder="confirm email"/>
 
-        <input type="text" placeholder="username"/>
-
         <input type="password" placeholder="password" [(ngModel)]="password" name="password"/>
 
         <button (click)="signup()" [disabled]="!email || !password">SIGN UP</button>
